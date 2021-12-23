@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new task</title>
+    <style>
+        .header {
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            padding: 20px 10px;
+        }
+
+        .header a {
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            line-height: 25px;
+            border-radius: 4px;
+        }
+
+        .header a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .header a.active {
+            background-color: dodgerblue;
+            color: white;
+        }
+
+        .header-left {
+            float: left;
+        }
+
+        .header-right {
+            float: left;
+        }
+
+
+        input[type=text] {
+            font-size: 16px;
+            padding: 12px 20px;
+            margin-left: 30px;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+
+        label{
+            margin-left: 30px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 30px;
+            vertical-align: bottom;
+        }
+
+        input[type=button], input[type=submit], input[type=reset] {
+            margin-left: 30px;
+            margin-bottom: 30px;
+            background-color: #ffd200;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 30px;
+            border: none;
+            color: black;
+            padding: 16px 32px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        select {
+            font-size: 16px;
+            padding: 12px 20px;
+            margin-left: 30px;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+        p404 {
+            margin-left: 30px;
+            margin-bottom: 30px;
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+
+</head>
+<header>
+    <h1>
+
+    </h1>
+</header>
+<body>
+
+<div class="header">
+    <div class="header-left">
+        <a class="active" th:href="@{/events/all}">Go back</a>
+    </div>
+</div>
+
+<form th:method="POST" action="#" th:object="${event}" th:action="@{/events/create}">
+    <input type="hidden" name="_method" value="post" />
+
+
+    <label for="taskname" class="form-label">Event name: </label>
+    <br>
+    <input type="text"  id="taskname" th:field="*{name}"/>
+    <p th:if="${#fields.hasErrors('name')}" th:errorclass="error" th:errors="${name}" />
+    <br>
+
+    <label for="description" class="form-label">Location: </label>
+    <br>
+    <input type="text"  id="description" th:field="*{location}" />
+    <br>
+
+    <label for="deadline" class="form-label">Date: </label>
+    <br>
+    <input type="text" id="deadline" th:field="*{eventDate}" />
+
+    <p404 th:if="${#fields.hasErrors('eventDate')}">Invalid date format</p404>
+
+
+    <br>
+    <label for="taskstatus" class="form-label">Status: </label>
+    <br>
+    <select id="taskstatus" th:field="*{eventStatus.name}">
+        <option th:value="'Preparing'" th:text="Preparing"></option>
+        <option th:value="'Online'" th:text="Online"></option>
+        <option th:value="'Completed'" th:text="Completed"></option>
+        <option th:value="'Cancelled'" th:text="Cancelled"></option>
+    </select>
+    <br>
+
+    <input type="submit" value="Create"/>
+
+
+</form>
+</body>
+</html>

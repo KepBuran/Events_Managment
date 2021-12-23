@@ -1,0 +1,7 @@
+/home/anton/Projects/TRPS/src/main/java/com/tasks_equip_management/tem/api/dto/Task.java
+/home/anton/Projects/TRPS/src/main/java/com/tasks_equip_management/tem/ServiceTasksApplication.java
+/home/anton/Projects/TRPS/src/main/java/com/tasks_equip_management/tem/api/TaskController.java
+/home/anton/Projects/TRPS/src/main/java/com/tasks_equip_management/tem/service/impl/TaskServiceImpl.java
+/home/anton/Projects/TRPS/src/main/java/com/tasks_equip_management/tem/service/TaskService.java
+/home/anton/Projects/TRPS/src/main/java/com/tasks_equip_management/tem/repo/model/Task.java
+/home/anton/Projects/TRPS/src/main/java/com/tasks_equip_management/tem/repo/TaskRepo.java
